@@ -11,8 +11,13 @@ void printVector(std::vector<std::vector<int> > partes);
 int main()
 {
     std::vector <int> entrada;
-    entrada = {10,15,5,10,5};
-    int vDeseado = 25;
+
+    for (int x = 0; x < 25; x++)
+    {
+        entrada.push_back(x);
+    }
+    // entrada = {10,15,5,10,5};
+    int vDeseado = 28;
 
     int res = resolverFuerzaBruta(vDeseado,entrada);
 
@@ -69,7 +74,6 @@ void partesVector (std::vector<int>& entrada, std::vector<std::vector<int> > &pa
             // Check if jth bit in the counter is set, if so print the corresponding char
             if(counter & (1<<j))
             {
-
                 partes[counter].push_back(entrada[j]);
             }
         }
