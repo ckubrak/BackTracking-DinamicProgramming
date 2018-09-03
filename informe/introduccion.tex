@@ -1,0 +1,24 @@
+\par Dado un conjunto $S = \{v_1,v_2,...,v_n\}$, y un valor objetivo $V$, se busca decidir si existe un subconjunto
+de items de $S$ que sumen exactactamente el valor objetivo $V$. En caso de existir dicho conjunto, se obtener la
+m\'inima cardinalidad entre los subconjuntos que sumen $V$.
+
+\par Para resolver este problema, se utilizaron tres t\'ecnicas diferentes: \emph{Fuerza Bruta}, \emph{BackTracking}
+y \emph{Programaci\'on din\'amica}.
+
+\subsubsection{Fuerza Bruta}
+\par Para el caso de la fuerza bruta, se busca armar todos los posibles subconjuntos del conjunto $S$ para luego realizar
+la suma y verificar si el n\'umero obtenido es $V$.
+
+\subsubsection{BackTracking}
+\par El BackTracking es un m\'etodo de fuerza bruta inteligente: en el peor caso se comporta como un m\'etodo de fuerza
+bruta, pero no se investigan las posibilidades que por \emph{optimalidad } o \emph{factibilidad} se descartan.
+Para descartar por \emph{optimalidad}, una vez hallada una soluci\'on se guarda el cardinal. A la hora de analizar nuevas
+posibles soluciones, si el el cardinal del nuevo subconjunto excede el actual m\'inimo, es descartado. \par
+Por otro lado, para descartar por \emph{factibilidad} a la hora de armar un subconjunto se lo arma elemento por elemento
+y en caso de ya superar el valor $V$, se dejan de agregar elementos (ya que todos son no negativos).
+
+
+\subsubsection{Programaci\'on din\'amica}
+\par Para este enfoque, se plantea el problema a resolver como un problema recursivo a partir de subproblemas.
+Al haber varios subproblemas superpuestos, se guarda su soluci\'on en un diccionario de r\'apido acceso. Al tener las 
+soluciones al subproblema almacenadas, no se realiza m\'as de una vez la misma operaci\'on.

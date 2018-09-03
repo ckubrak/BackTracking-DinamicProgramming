@@ -1,0 +1,35 @@
+\subsection{Fuerza Bruta}
+
+
+\begin{codebox}
+    \Procname{$\proc{ResolverFuerzaBruta}(int V, int[] S)$ \textcolor{red}{O($n*2^n$)}}
+    \li partes = obtenerPartes(S) \textcolor{red}{O($n*2^n$)}
+    \li $cardinalParcial = \infty$ \textcolor{red}{O($1$)}
+    \li \For $k \gets 0$ \To $size(partes) - 1$ \textcolor{red}{O($2^n$)*O($n$) $\Rightarrow O(n* 2^n)$}
+        \Do
+    \li $resultado \gets \sum_{i=0}^{k} partes_{k_i}$ \textcolor{red}{O($n$)}
+    \li \If $resultado == V$ and $partes_k < cardinalParcial$ \textcolor{red}{O($1$)}
+            \Then
+    \li         $cardinalParcial = partes_k$ \textcolor{red}{O($1$)}
+    \li 
+        \End
+    \li \If $cardinalParcial \neq \infty$ \textcolor{red}{O($1$)}
+        \Then
+    \li     \Return $cardinalParcial$ \textcolor{red}{O($1$)}
+    \li \Else 
+    \li     \Return $-1$ \textcolor{red}{O($1$)}
+
+    \end{codebox}
+
+\begin{codebox}
+    \Procname{$\proc{obtenerPartes}(int[] S)$ \textcolor{red}{O($n*2^n$)}}
+    \li $partes = nuevoVector(2^{size(S)})$ \textcolor{red}{O($2^n$)}
+    \li \For $k \gets 0$ \To $2^{size(S)} - 1$ \textcolor{red}{O($2^n$)*O($n$) $\Rightarrow O(n* 2^n)$}
+        \Do
+    \li     \For $j \gets 0$ \To $size(S) - 1$ \textcolor{red}{O($n$)}
+            \Do
+    \li         \If $(k \& (1<<j))$   \textcolor{red}{O($n$)}
+                   \Then
+    \li                 $partes.append(S_i)$ \textcolor{red}{O($n$)}
+            
+\end{codebox}

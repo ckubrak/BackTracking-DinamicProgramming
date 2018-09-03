@@ -1,0 +1,27 @@
+\subsection{Por inducci\'on:}
+\subsubsection{Caso base $n=0$:  }
+${{0}\choose{0}}={\frac{0!}{0!0!}}=2^0$  
+  
+\subsubsection{Paso inductivo:}
+Sea $k$ un entero tal que $0\le{k}$
+ y para todo L, $0\le{L}\le{k}$ vale la f\'ormula.
+Entonces:  
+$${{k}\choose{0}} + {{k}\choose{1}}+...+{{k}\choose{k}}=2^k$$
+Ahora, utilizando que ${{k}\choose{0}}={{k+1}\choose{0}}$ and ${{k}\choose{k}}={{k+1}\choose{k+1}}$.  y teniendo en 
+cuenta la identidad de Pascal,
+\[
+    {{k+1}\choose{0}}+{{k+1}\choose{1}}+{{k+1}\choose{2}}+...+{{k+1}\choose{k}}+{{k+1}\choose{k+1}}
+\]
+
+\[
+    ={{k+1}\choose{0}}+{{k}\choose{0}}+{{k}\choose{1}}+{{k}\choose{1}}+{{k}\choose{2}}+...+{{k}\choose{k-1}}+{{k}\choose{k}}+{{k+1}\choose{k+1}}
+\]
+
+\[
+    ={{k}\choose{0}}+{{k}\choose{0}}+{{k}\choose{1}}+{{k}\choose{1}}+{{k}\choose{2}}+...+{{k}\choose{k-1}}+{{k}\choose{k}}+{{k}\choose{k}}
+\]
+
+\[
+    =2*{\sum_{i=0}^{k}{{k}\choose{i}}}\\=2*2^k\\=2^{k+1}
+\]
+Por inducci\'on, como a partir de $k$ puedo inducir $k+1$, la f\'ormula es v\'alida.
