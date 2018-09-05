@@ -11,7 +11,13 @@ void printVector(std::vector<std::vector<int> > partes);
 int main()
 {
     std::vector <int> entrada;
-    entrada = {10,15,5,10,5};
+    
+    for(size_t i = 0; i < 26; i++)
+    {
+        entrada.push_back(i);
+    }
+    
+    // entrada = {10,15,5,10,5};
     int vDeseado = 25;
 
     int i = entrada.size() - 1;

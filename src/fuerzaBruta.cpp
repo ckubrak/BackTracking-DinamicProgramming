@@ -19,13 +19,11 @@ int solucionFB (int vDeseado, std::vector<int>& entrada)
 int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n)
 {
     int entradaI = entrada[i];
-    std::cout << entradaI << " " << vDeseado << " " << i<<std::endl;
     if (i == -1) {
         return n+1;
     }
     if (vDeseado == 0)
     {
-        std::cout << "v = 0 con " << i<<std::endl;
         return 0;
     }
     if (entrada[i] > vDeseado)
@@ -37,7 +35,6 @@ int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n)
         int parcial1 = resolverFuerzaBruta(vDeseado, entrada, i-1,n+1);
         int parcial2 = 1 + resolverFuerzaBruta(vDeseado - entrada[i], entrada, i-1,n+1);
 
-    
         return std::min(parcial1, parcial2);
     }
 }
