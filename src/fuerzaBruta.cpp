@@ -27,15 +27,8 @@ int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n, 
     {
         return 0;
     }
-    if (entrada[i] > vDeseado)
-    {
-        return resolverFuerzaBruta(vDeseado, entrada, i-1,n,count);
-    }
-    if (entrada[i] <= vDeseado)
-    {
         int parcial1 = resolverFuerzaBruta(vDeseado, entrada, i-1,n,count);
         int parcial2 = 1 + resolverFuerzaBruta(vDeseado - entrada[i], entrada, i-1,n,count);
 
         return std::min(parcial1, parcial2);
-    }
 }
