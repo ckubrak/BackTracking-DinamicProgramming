@@ -28,12 +28,12 @@ int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n)
     }
     if (entrada[i] > vDeseado)
     {
-        return resolverFuerzaBruta(vDeseado, entrada, i-1,n+1);
+        return resolverFuerzaBruta(vDeseado, entrada, i-1,n);
     }
     if (entrada[i] <= vDeseado)
     {
-        int parcial1 = resolverFuerzaBruta(vDeseado, entrada, i-1,n+1);
-        int parcial2 = 1 + resolverFuerzaBruta(vDeseado - entrada[i], entrada, i-1,n+1);
+        int parcial1 = resolverFuerzaBruta(vDeseado, entrada, i-1,n);
+        int parcial2 = 1 + resolverFuerzaBruta(vDeseado - entrada[i], entrada, i-1,n);
 
         return std::min(parcial1, parcial2);
     }
