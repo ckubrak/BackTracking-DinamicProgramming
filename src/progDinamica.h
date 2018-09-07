@@ -6,7 +6,9 @@
 #include <math.h>       /* pow */
 #include <stdio.h>
 
-int resolverDinamica (int vDeseado, std::vector<int>& entrada);
-int solucionDinamica (int vDeseado, std::vector<int>& entrada);
+typedef std::vector<std::vector<int> > matriz;
+
+int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados, int& count);
+int solucionDinamica (int vDeseado, std::vector<int>& entrada, int& count);
 
 #endif

@@ -2,9 +2,9 @@
 #include "progDinamica.h"
 
 
-typedef std::vector<std::vector<int> > matriz;
-int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados)
+int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados, int& count)
 {
+    count++;
     if (i == -1 && vDeseado != 0)
     {
         return n + 1;
@@ -19,12 +19,12 @@ int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matr
             int entradaI = entrada[i];
             if (entrada[i] > vDeseado)
             {
-                resultados[i][vDeseado] = resolverDinamica(vDeseado, entrada, i - 1, n, resultados);
+                resultados[i][vDeseado] = resolverDinamica(vDeseado, entrada, i - 1, n, resultados,count);
             }
             if (entrada[i] <= vDeseado)
             {
-                int parcial1 = resolverDinamica(vDeseado, entrada, i - 1, n, resultados);
-                int parcial2 = 1 + resolverDinamica(vDeseado - entrada[i], entrada, i - 1, n, resultados);
+                int parcial1 = resolverDinamica(vDeseado, entrada, i - 1, n, resultados,count);
+                int parcial2 = 1 + resolverDinamica(vDeseado - entrada[i], entrada, i - 1, n, resultados,count);
 
                 resultados[i][vDeseado] = std::min(parcial1, parcial2);
             }
@@ -33,7 +33,7 @@ int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matr
     }
 }
 
-int solucionDinamica (int vDeseado, std::vector<int>& entrada)
+int solucionDinamica (int vDeseado, std::vector<int>& entrada, int& count)
 {
     int res;
     int n = entrada.size();
@@ -46,7 +46,7 @@ int solucionDinamica (int vDeseado, std::vector<int>& entrada)
     //     resultados[0][j] = n+1;
     // }
 
-    res = resolverDinamica(vDeseado, entrada, i-1,n,resultados);
+    res = resolverDinamica(vDeseado, entrada, i-1,n,resultados,count);
     if (res > entrada.size())
     {
         return -1;
