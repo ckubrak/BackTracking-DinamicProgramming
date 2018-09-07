@@ -6,5 +6,10 @@
 #include <math.h>       /* pow */
 #include <stdio.h>
 
+int resolverBackFact (int vDeseado, std::vector<int>& entrada,int i, int n, int& count);
+int solucionBackFact (int vDeseado, std::vector<int>& entrada,int count);
+
+int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, int& count);
+int solucionBackOpt (int vDeseado, std::vector<int>& entrada,int count);
 
 #endif
