@@ -7,5 +7,6 @@
 #include <stdio.h>
 
 int resolverDinamica (int vDeseado, std::vector<int>& entrada);
+int solucionDinamica (int vDeseado, std::vector<int>& entrada);
 
 #endif
