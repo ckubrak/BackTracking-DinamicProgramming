@@ -21,11 +21,10 @@ int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n, 
     count++;
     int entradaI = entrada[i];
     if (i == -1) {
-        return n+1;
-    }
-    if (vDeseado == 0)
-    {
-        return 0;
+        if (vDeseado == 0)
+            return 0;
+        else 
+            return n+1;
     }
         int parcial1 = resolverFuerzaBruta(vDeseado, entrada, i-1,n,count);
         int parcial2 = 1 + resolverFuerzaBruta(vDeseado - entrada[i], entrada, i-1,n,count);
