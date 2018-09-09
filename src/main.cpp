@@ -4,67 +4,83 @@
 #include <stdio.h>
 #include <chrono>
 #include <ctime>
-
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
-#include <chrono>
+
 #include "fuerzaBruta.h"
 #include "progDinamica.h"
+#include "backTracking.h"
 
-void printVector(std::vector<std::vector<int> > partes);
 
-int main()
+int main(int argc, char* argv[]) 
 {
+    // std::cout << argc;
+    int tamano,vDeseado, item;
+    std::cin  >> tamano >> vDeseado;
     std::vector <int> entrada;
-
-    std::srand((unsigned)time(NULL));
-   
-    for(size_t i = 0; i < 100; i++)
+    for (int i = 0; i < tamano; i++)
     {
-        entrada.push_back(1 + std::rand() % 1000);
+        std::cin >> item;
+        entrada.push_back(item);
     }
+
+
+
     
-    // entrada = {10,15,5,10,5};
-    int vDeseado = 1430;
+    // int vDeseado = 1 + std::rand() % 30;
 
     int i = entrada.size() - 1;
+    int n = entrada.size();
+
+    std::cout <<n <<" " <<vDeseado << " ";
+
 
     //Contadores de recursion
     int countFB = 0;
     int countDin = 0;
+    int countBackFact = 0;
+    int countBackOpt = 0;
 
-
+    int metodo = atoi(argv[1]);
+    if (metodo == 1)
+    {
     auto startFB = std::chrono::steady_clock::now();
     int resFB = solucionFB(vDeseado, entrada,countFB);
     auto endFB = std::chrono::steady_clock::now();
     auto diffFB = endFB - startFB;
-    std::cout << "Tiempo utilizado por FB " <<std::chrono::duration <double, std::milli> (diffFB).count() << " ms" << std::endl;
-    std:: cout << "Esperado fuerza Bruta " << std::pow(2,(entrada.size())) << " obtenido " << countFB << std::endl;
+    std::cout << std::chrono::duration <double, std::milli> (diffFB).count() << " ";
+    std::cout << countFB << std::endl;
 
+
+        return resFB;
+    }
+
+    else if (metodo == 2)
+    {
     auto startDin = std::chrono::steady_clock::now();
     int resDin = solucionDinamica(vDeseado, entrada, countDin);
     auto endDin = std::chrono::steady_clock::now();
     auto diffDin = endDin - startDin;
-    std::cout << "Tiempo utilizado por Din " <<std::chrono::duration <double, std::milli> (diffDin).count() << " ms" << std::endl;
-    std:: cout << "Esperado por Din " << (entrada.size())*vDeseado << " obtenido " << countDin<< std::endl;
-
-    std::cout << countFB << " " <<countDin;
-    return resFB;
-
-}
+    std::cout <<std::chrono::duration <double, std::milli> (diffDin).count() << " ";
+    std:: cout << countDin<< std::endl;
 
 
-void printVector(std::vector<std::vector<int> > partes)
-{
-    for (int i = 0; i < partes.size(); i++)
-    {
-        for (int j = 0; j < partes[i].size();j++)
-        {
-            std::cout << partes[i][j]<<" ";
-        }
-        std::cout << std::endl;
+        return resDin;
     }
+
+    else if (metodo == 3)
+    {
+    auto startBackFact = std::chrono::steady_clock::now();
+    int resBackFact = solucionBackFact(vDeseado,entrada,countBackFact);
+    auto endBackFact = std::chrono::steady_clock::now();
+    auto diffBackFact = endBackFact - startBackFact;
+    std::cout << std::chrono::duration <double, std::milli> (diffBackFact).count() << " ";
+    std:: cout << countBackFact<< std::endl;
+
+        return resBackFact;
+    }
+
+
+
 }
