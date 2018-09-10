@@ -2,7 +2,7 @@
 #include "progDinamica.h"
 
 
-int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados, int& count)
+int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados, contador& count)
 {
     count++;
     if (vDeseado == 0)
@@ -33,7 +33,7 @@ int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matr
     }
 }
 
-int solucionDinamica (int vDeseado, std::vector<int>& entrada, int& count)
+int solucionDinamica (int vDeseado, std::vector<int>& entrada, contador& count)
 {
     int res;
     int n = entrada.size();

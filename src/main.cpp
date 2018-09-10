@@ -34,10 +34,10 @@ int main(int argc, char* argv[])
 
 
     //Contadores de recursion
-    int countFB = 0;
-    int countDin = 0;
-    int countBackFact = 0;
-    int countBackOpt = 0;
+    contador countFB = 0;
+    contador countDin = 0;
+    contador countBackFact = 0;
+    contador countBackOpt = 0;
 
     int metodo = atoi(argv[1]);
     if (metodo == 1)

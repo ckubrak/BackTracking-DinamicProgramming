@@ -1,8 +1,8 @@
 #include "backTracking.h"
 
-typedef std::vector<std::vector<int> > matriz;
+typedef std::vector<std::vector<int> > matriz; 
 
-int resolverBackFact (int vDeseado, std::vector<int>& entrada,int i, int n, int& count)
+int resolverBackFact (int vDeseado, std::vector<int>& entrada,int i, int n, contador& count)
 {
     count++;
     if (vDeseado == 0)
@@ -26,7 +26,7 @@ int resolverBackFact (int vDeseado, std::vector<int>& entrada,int i, int n, int&
         return std::min(parcial1, parcial2);
     }
 }
-int solucionBackFact (int vDeseado, std::vector<int>& entrada, int& count)
+int solucionBackFact (int vDeseado, std::vector<int>& entrada, contador& count)
 {
     int n = entrada.size();
 
@@ -45,7 +45,7 @@ int solucionBackFact (int vDeseado, std::vector<int>& entrada, int& count)
 }
 
 
-int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, int& count, int& minParcial, int cardinalParcial)
+int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, contador& count, int& minParcial, int cardinalParcial)
 {
     if (cardinalParcial > minParcial)
         return n+1;
@@ -72,7 +72,7 @@ int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, int& 
         return std::min(parcial1, parcial2);
     }
 }
-int solucionBackOpt (int vDeseado, std::vector<int>& entrada, int& count)
+int solucionBackOpt (int vDeseado, std::vector<int>& entrada, contador& count)
 {
     int n = entrada.size();
     int minParcial = n+1;

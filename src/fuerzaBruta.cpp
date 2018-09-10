@@ -1,7 +1,7 @@
 #include "fuerzaBruta.h"
 #include <algorithm>
 #include <stdlib.h>  
-int solucionFB (int vDeseado, std::vector<int>& entrada, int& count)
+int solucionFB (int vDeseado, std::vector<int>& entrada, contador& count)
 {
     int i = entrada.size() - 1;
     int res = resolverFuerzaBruta(vDeseado,entrada,i,entrada.size(),count);
@@ -16,7 +16,7 @@ int solucionFB (int vDeseado, std::vector<int>& entrada, int& count)
     }
     
 }
-int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n, int& count)
+int resolverFuerzaBruta (int vDeseado, std::vector<int>& entrada, int i, int n, contador& count)
 {
     count++;
     int entradaI = entrada[i];
