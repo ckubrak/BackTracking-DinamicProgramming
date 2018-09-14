@@ -1,35 +1,74 @@
 \subsection{Fuerza Bruta}
 
 
+
+
 \begin{codebox}
-    \Procname{$\proc{ResolverFuerzaBruta}(int V, int[] S)$ \textcolor{red}{O($n*2^n$)}}
-    \li partes = obtenerPartes(S) \textcolor{red}{O($n*2^n$)}
-    \li $cardinalParcial = \infty$ \textcolor{red}{O($1$)}
-    \li \For $k \gets 0$ \To $size(partes) - 1$ \textcolor{red}{O($2^n$)*O($n$) $\Rightarrow O(n* 2^n)$}
-        \Do
-    \li $resultado \gets \sum_{i=0}^{k} partes_{k_i}$ \textcolor{red}{O($n$)}
-    \li \If $resultado == V$ and $partes_k < cardinalParcial$ \textcolor{red}{O($1$)}
-            \Then
-    \li         $cardinalParcial = partes_k$ \textcolor{red}{O($1$)}
-    \li 
-        \End
-    \li \If $cardinalParcial \neq \infty$ \textcolor{red}{O($1$)}
+    \Procname{\proc{ResolverFuerzaBruta}(int V, int[] S, int i, int n) \textcolor{red}{O($n*2^n$)}}
+    \li \If $i == -1$ 
         \Then
-    \li     \Return $cardinalParcial$ \textcolor{red}{O($1$)}
-    \li \Else 
-    \li     \Return $-1$ \textcolor{red}{O($1$)}
+    \li        \If $V == 0$ : 
+                \Then
+    \li             \Return $0$
+    \li         \Else: 
+    \li                 \Return $n+1$
+                \End
+                \End
+
+    \li \Return min(ResolverFuerzaBruta($V$,$S$,$i-1$,$n$),$1 +$ResolverFuerzaBruta($V-S[i]$,$S$,$i-1$,$n$))
 
     \end{codebox}
 
 \begin{codebox}
-    \Procname{$\proc{obtenerPartes}(int[] S)$ \textcolor{red}{O($n*2^n$)}}
-    \li $partes = nuevoVector(2^{size(S)})$ \textcolor{red}{O($2^n$)}
-    \li \For $k \gets 0$ \To $2^{size(S)} - 1$ \textcolor{red}{O($2^n$)*O($n$) $\Rightarrow O(n* 2^n)$}
-        \Do
-    \li     \For $j \gets 0$ \To $size(S) - 1$ \textcolor{red}{O($n$)}
-            \Do
-    \li         \If $(k \& (1<<j))$   \textcolor{red}{O($n$)}
-                   \Then
-    \li                 $partes.append(S_i)$ \textcolor{red}{O($n$)}
-            
-\end{codebox}
+    \Procname{\proc{ResolverBackTracking}(int V, int[] S, int i, int n, int minParcial, int cardinalParcial)} 
+    % \li \If $i == -1$ \textcolor{red}{O($n*2^n$)}
+    \li \If $cardinalParcial$ $>$ $minParcial$: 
+        \Then
+    \li        \Return $n+1$ \End
+    \li \If $V == 0$:
+         \Then
+    \li         $minParcial = cardinalParcial$
+    \li         \Return $n+1$ 
+    \End
+    \li \If $i == -1$ 
+        \Then
+    \li                 \Return $n+1$
+                \End
+    \li \If $S[i]$ $>$ $V$: 
+        \Then 
+    \li         \Return  ResolverBackTracking($V$,$S$,$i-1$,$n$,$minParcial$,$cardinalParcial$)
+    \li    \Else:
+    \li          \Return min(ResolverBackTracking($V$,$S$,$i-1$,$n$,$minParcial$,$cardinalParcial$),
+                            \\ $\qquad\qquad$$\qquad\quad\,\,$ $1+$ ResolverBackTracking($V-S[i]$,$S$,$i$,$n$,$minParcial$,$cardinalParcial+1$))
+
+
+
+    \end{codebox}
+
+\par Resulta f\'acil ver que la soluci\'on de Back Tracking es un caso especial del algor\'itmo de Fuerza Bruta,
+salvo que gracias a las podas de \textit{optimalidad} y \textit{factibilidad} se evita investigar ciertas partes del
+\'arbol de soluci\'on. A\'un as\'i, en el peor caso (por ejemplo un arreglo en el cual la suma de sus elementos no llega
+a $V$) se termina comportando como Fuerza Bruta. Luego su complejidad resulta $O(n)$
+
+\begin{codebox}
+    \Procname{\proc{ResolverDinamica}(int V, int[] S, int i, int n, matriz resultados) \textcolor{red}{O($n*2^n$)}}
+    \li \If $V == 0$:
+         \Then
+    \li         \Return $0$ 
+    \End
+    \li \If $i == -1$ 
+        \Then
+    \li                 \Return $n+1$
+                \End
+    \li \If $noEstaDefinido(resultados[i][V]$): 
+        \Then 
+    \li          \Return min(ResolverDinamica($V$,$S$,$i-1$,$n$,$resultados$,
+                            \\ $\qquad\qquad$$\qquad\quad\,\,$ $1+$ResolverDinamica($V-S[i]$,$S$,$i-1$,$n$,$resultados$))
+                            \End
+    \li \Return resultados[i][vDeseado]
+
+\par Para el caso de Programaci\'on Din\'amica, lo complejidad resulta $O(n*V)$ ya que cada soluci\'on parcial 
+se calcula hasta una sola vez para luego almacerlo en una matriz de $n$ filas y $V$ columnas.
+
+
+    \end{codebox}
