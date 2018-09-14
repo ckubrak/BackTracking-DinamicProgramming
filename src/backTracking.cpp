@@ -59,10 +59,10 @@ int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, conta
         return n+1;
     }
     int entradaI = entrada[i];
-    // if (entrada[i] > vDeseado)
-    // {
-    //     return resolverBackOpt(vDeseado, entrada, i-1,n,count,minParcial);
-    // }
+    if (entrada[i] > vDeseado)
+    {
+        return resolverBackOpt(vDeseado, entrada, i-1,n,count,minParcial,cardinalParcial);
+    }
     if (entrada[i] <= vDeseado)
     {
         int parcial1 = resolverBackOpt(vDeseado, entrada, i-1,n,count,minParcial, cardinalParcial);

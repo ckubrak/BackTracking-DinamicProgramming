@@ -17,17 +17,10 @@ int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matr
         if (resultados[i][vDeseado] == -2)
         {
             int entradaI = entrada[i];
-            if (entrada[i] > vDeseado)
-            {
-                resultados[i][vDeseado] = resolverDinamica(vDeseado, entrada, i - 1, n, resultados,count);
-            }
-            if (entrada[i] <= vDeseado)
-            {
-                int parcial1 = resolverDinamica(vDeseado, entrada, i - 1, n, resultados,count);
-                int parcial2 = 1 + resolverDinamica(vDeseado - entrada[i], entrada, i - 1, n, resultados,count);
+            int parcial1 = resolverDinamica(vDeseado, entrada, i - 1, n, resultados, count);
+            int parcial2 = 1 + resolverDinamica(vDeseado - entrada[i], entrada, i - 1, n, resultados, count);
 
-                resultados[i][vDeseado] = std::min(parcial1, parcial2);
-            }
+            resultados[i][vDeseado] = std::min(parcial1, parcial2);
         }
         return resultados[i][vDeseado];
     }

@@ -72,25 +72,26 @@ int main(int argc, char* argv[])
         return resDin;
     }
 
+    // else if (metodo == 3)
+    // {
+    //     auto startBackFact = std::chrono::steady_clock::now();
+    //     int resBackFact = solucionBackFact(vDeseado, entrada, countBackFact);
+    //     auto endBackFact = std::chrono::steady_clock::now();
+    //     auto diffBackFact = endBackFact - startBackFact;
+    //     // TODO Borrar antes de entregar
+    //     // Se usa para experimentacion
+    //     std::cout << std::chrono::duration<double, std::milli>(diffBackFact).count() << " ";
+    //     std::cout << countBackFact << std::endl;
+
+    //     // TODO Descomentar para entregar
+    //     std::cout << resBackFact;
+    //     return resBackFact;
+    // }
     else if (metodo == 3)
     {
-        auto startBackFact = std::chrono::steady_clock::now();
-        int resBackFact = solucionBackFact(vDeseado, entrada, countBackFact);
-        auto endBackFact = std::chrono::steady_clock::now();
-        auto diffBackFact = endBackFact - startBackFact;
-        // TODO Borrar antes de entregar
-        // Se usa para experimentacion
-        std::cout << std::chrono::duration<double, std::milli>(diffBackFact).count() << " ";
-        std::cout << countBackFact << std::endl;
-
-        // TODO Descomentar para entregar
-        // std::cout << resBackFact;
-        return resBackFact;
-    }
-    else if (metodo == 4)
-    {
         auto startBackOpt = std::chrono::steady_clock::now();
-        int resBackOpt = solucionBackFact(vDeseado, entrada, countBackOpt);
+        int resBackOpt = solucionBackOpt (vDeseado, entrada, countBackOpt);
+        // int resBackOpt = solucionBackOpt(vDeseado, entrada, countBackOpt);
         auto endBackOpt = std::chrono::steady_clock::now();
         auto diffBackOpt = endBackOpt - startBackOpt;
         // TODO Borrar antes de entregar
