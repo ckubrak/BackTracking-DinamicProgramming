@@ -8,9 +8,6 @@
 
 typedef unsigned long long contador;
 
-int resolverBackFact (int vDeseado, std::vector<int>& entrada,int i, int n, contador& count);
-int solucionBackFact (int vDeseado, std::vector<int>& entrada, contador& count);
-
 int resolverBackOpt (int vDeseado, std::vector<int>& entrada,int i, int n, contador& count, int& minParcial, int cardinalParcial);
 int solucionBackOpt (int vDeseado, std::vector<int>& entrada, contador& count);
 

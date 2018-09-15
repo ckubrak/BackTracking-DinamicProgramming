@@ -5,8 +5,8 @@
 int resolverDinamica(int vDeseado, std::vector<int> &entrada, int i, int n, matriz &resultados, contador& count)
 {
     count++;
-    if (vDeseado == 0)
-        return 0;
+    // if (vDeseado == 0)
+    //     return 0;
     if (i == -1 )
     {
         return n + 1;
@@ -33,6 +33,11 @@ int solucionDinamica (int vDeseado, std::vector<int>& entrada, contador& count)
     int i = n-1;
     std::vector<int> filaConBasura(vDeseado + 1,-2);
     matriz resultados(n,filaConBasura);
+
+    for (int j = 0; j < resultados.size(); j++)
+    {
+        resultados[j][0] = 0;
+    }
 
     res = resolverDinamica(vDeseado, entrada, i,n,resultados,count);
     if (res > entrada.size())
