@@ -1,0 +1,63 @@
+\par A partir del an\'alisis de los resultados, puedo concluir que no existe un algor\'itmo
+que sea siempre mejor que los otros dos ya que dependen de los par\'ametros $n$ y $V$.
+Es por esto que a la hora de utilizar la soluci\'on de este problema como subrutina de 
+alg\'un otro problema considero de vital importancia analizar las ventajas y deventajas
+de cada algor\'itmo seg\'un el \textbf{contexto de uso}.
+\subsection{Ventajas}
+\subsubsection{Fuerza Bruta}
+\begin{itemize}
+    \item[\checkmark] Es simple de programar.
+    \item[\checkmark] Para un $n$ ``chico'' y un $V$ ``grande'' puede comportarse mejor
+    que Programaci\'on Din\'amica.
+\end{itemize}
+
+\subsubsection{Backtracking}
+\begin{itemize}
+    \item[\checkmark] Al realizar podas, no se investiga todo el \'arbol de soluciones
+    \item[\checkmark] Para un $n$ y un $v$ tal que $2^n > n*V$ es mejor que el resto.
+
+\end{itemize}
+
+\subsubsection{Programaci\'on Din\'amica}
+\begin{itemize}
+    \item[\checkmark] Calcula solamente una vez cada subproblema
+    \item[\checkmark] Para un $n$ y $n$ tal que $2^n < n*V$ es mejor que los otros dos.
+
+\end{itemize}
+\subsection{Desventajas}
+
+\subsubsection{Fuerza Bruta}
+\begin{itemize}
+    \item[$\times$] Calcula varias veces el mismo subproblema
+	\item[$\times$] Siempre recorre todo el \'arbol de soluciones.
+	\item[$\times$] Su comlejidad es exactamente $O(2^n)$.
+\end{itemize}
+
+\subsubsection{Back Tracking}
+\begin{itemize}
+    \item[$\times$] En el peor caso (Experimentaci\'on ``No Llega'') realiza la misma.
+    cantidad de llamadas recursivas que Fuerza Bruta ya que no puede realizar ninguna poda.
+    \item[$\times$] En el peor caso, requiere m\'as tiempo que Fuerza Bruta para
+    resolver el problema.
+\end{itemize}
+
+\subsubsection{Programaci\'on Din\'amica}
+\begin{itemize}
+    \item[$\times$] Para un $n$ y $V$ tal que $2^n > n*V$ el algor\'itmo se comporta hasta
+    peor que Fuerza Bruta.
+    \item[$\times$] Para $n$ y $V$ ``grandes'' es posible que no alcance la memoria disponible
+    para almacenar todas las soluciones parciales.
+\end{itemize}
+
+\subsection{Conclusion Final}
+\par Tal como mencion\'e previamente, la elecci\'on del alg\'oritmo a usar deber\'ia depender
+del contexto de uso: si $2^n > n*V$ resulta mejor utilizar Backtracking aunque para $2^n < n*V$
+es recomendable utilizar Programaci\'on. No considero que sea aplicable el algor\'itmo de Fuerza
+Bruta.
+
+\subsection{Futuros Trabajos}
+\par Resultar\'ia interesante hacer un an\'alis sobre cu\'al es el caso promedio para as\'i poder 
+determinar cual ser\'ia el algor\'itmo m\'as conveniente de aplicar en un contexto real.
+ Adem\'as tambi\'en considero que podr\'ia resultar de inter\'es utilizar un alg\'oritmo 
+h\'ibrido entre Backtracking y Programaci\'on Din\'amica: se almacenan las soluciones parciales
+pero no se investigan aquellas que por optimalidad o factibilidad no resulten \'util calcular.

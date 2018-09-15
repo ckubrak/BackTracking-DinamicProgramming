@@ -1,0 +1,43 @@
+Para la experimentaci\'on considero importante analizar la incidencia de los par\'ametros
+$n$ y $V$ en la cantidad de llamadas recursivas que hace cada algor\'itmo ya que esto ser\'a lo que m\'as
+aporte al tiempo de ejecuci\'on. A\'un as\'i, tambi\'en analizar\'e el tiempo de ejecuci\'on en algunos casos.
+
+\subsection{Experimentaci\'on ``Aleatoria''}
+\subsubsection{Metodolog\'ia}
+\par Para esta experimentaci\'on se busc\'o analizar como inciden $n$ y $V$ en cada una
+de las distintas maneras de resolver el problema en cuesti\'on. 
+\par Para generar los n\'umeros de manera ``aleatoria'' utilc\'e la funci\'on \texttt{randint()} 
+de la librer\'ia estandar de Python, de manera que cada valor del arreglo $S$ sea un valor aleatorio entre $0$ y
+$0.9*V$. Utilic\'e este intervalo de n\'umeros de manera que exista la posibilidad que exista alg\'un subconjunto
+cuya suma sea $V$.
+\par Dado que los experimentos se basan en la utilizaci\'on de par\'ametros aleatorios, se corri\'o 10 veces cada
+uno para poder promediarlos a modo de evitar minimizar las fluctuaciones que pudo haber generado el hecho de usar
+n\'umeros aleatorios.
+
+\subsubsection{Hip\'otesis}
+Mis hip\'otesis para esta experimentaci\'on:
+\begin{enumerate}[I]
+    \item El algor\'itmo de Fuerza Bruta se comportar\'a exactamente de manera exponencial respecto a $n$ y no 
+    infuir\'a el valor de $V$
+    \item El algor\'itmo de Back Tracking se comportar\'a mejor que exponencial respecto a $n$ gracias a las podas
+    y el valor $V$ tendr\'a cierta incidencia.
+    \item El algor\'itmo de Programaci\'on Din\'amica se comportar\'a de manera lineal en $n$ cuando $V$ est\'e fijo
+    y de manera lineal en $V$ cuando $n$ est\'e fijo.
+    \item Para casos con $n$ ``chico'' y $V$ ``grande'' BackTracking ser\'a el mejor temporalmente, mientras que para 
+    casos con $n$ ``grande'' y $V$ ``chico'' Programaci\'on Din\'amica ser\'a el mejor.
+\end{enumerate}
+
+
+\subsection{Experimentaci\'on ``No Llega''}
+\subsubsection{Metodolog\'ia}
+\par Para esta experimentaci\'on se busc\'o analizar los casos en los cuales no existe subconjunto de $S$ tal que su
+suma es $V$. Para lograr esto se crearon arreglos de variando $V$ y usando $n = V-1$ con $S[i] = 1$ 
+$\forall i, 1\leq i \leq n$. De esta manera $\sum_{i=0}^{n-1}S_i < {V}$
+
+\subsubsection{Hip\'otesis}
+Mis hip\'otesis para esta experimentaci\'on:
+\begin{enumerate}[I]
+    \item Los algor\'itmos de Fuerza Bruta y BackTracking se comportaran de igual manera ya que BackTracking no podr\'a
+    realizar ninguna poda y deber\'a investigar todas las soluciones.
+    \item El algor\'itmo de Programaci\'on Din\'amica ser\'a el que mejor de desempe\~nar\'a.
+\end{enumerate}

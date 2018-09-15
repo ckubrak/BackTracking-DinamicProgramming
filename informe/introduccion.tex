@@ -22,3 +22,13 @@ y en caso de ya superar el valor $V$, se dejan de agregar elementos (ya que todo
 \par Para este enfoque, se plantea el problema a resolver como un problema recursivo a partir de subproblemas.
 Al haber varios subproblemas superpuestos, se guarda su soluci\'on en un diccionario de r\'apido acceso. Al tener las 
 soluciones al subproblema almacenadas, no se realiza m\'as de una vez la misma operaci\'on.
+
+\subsection{Ejemplos del problema}
+\subsubsection{Caso A}
+Sea un conjunto $S = \{ 4, 10,3,1,1\}$ y $V=5$. Los posibles subconjuntos que suman 5 son: $\{4,1 \}$ y $\{3,1,1\}$
+los cuales tienen cardinal 2 y 3 respectivamente. Dado que el inter\'es de este problema es encontrar la 
+m\'inima cardinal para la cual existe un subconjunto tal que la suma de sus elementos es exactactamente $V$, la 
+soluci\'on para este caso es $2$.
+\subsubsection{Caso B}
+Sea el conjunto $S = \{ 5, 7 ,3,2\}$ y $V=6$. No extiste ning\'un subconjunto tal que la suma de los elementos
+sea exactactamente $6$, raz\'on por la soluci\'on a este problema es $-1$

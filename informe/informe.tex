@@ -7,9 +7,14 @@
     \usepackage{verbatim}
     \usepackage{clrscode3e}
     \usepackage{amssymb}
+    \usepackage{amsfonts} % for the \checkmark command 
     \usepackage{graphicx}
     \usepackage{float}
     \usepackage{pdfpages}
+    \usepackage{enumerate}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage[left=3cm, right=3cm, top=2cm]{geometry}
 % \documentclass[10pt,a4paper]{article}
 % \usepackage[utf8x]{inputenc} % para poder usar tildes en archivos UTF-8
 % \usepackage[spanish,es-tabla]{babel}
@@ -43,18 +48,18 @@
 % Completar los integrantes del grupo:)
 \integrante{Cristian Kubrak}{456/15}{Kubrakcristian@gmail.com}
 
-
 \maketitle
-\par \textbf{Abstract:} El objetivo de este trabajo es resolver el problema de la suma de
-subconjuntos mediante 3 diferentes t\'ecnicas: Fuerza Bruta, Backtracking y 
-Programaci\'on din\'amica para luego analizar cu\'al de ellas resulta mejor aplicar seg\'un el contexto.
 
-\par  \textbf{Palabras clave:} subset sum - brute force - Backtracking - Programaci\'on din\'amica
-% Aca comienzan a escribir su informe
+% \par \textbf{Abstract:} El objetivo de este trabajo es resolver el problema de la suma de
+% subconjuntos mediante 3 diferentes t\'ecnicas: Fuerza Bruta, Backtracking y 
+% Programaci\'on din\'amica para luego analizar cu\'al de ellas resulta mejor aplicar seg\'un el contexto.
+
 \tableofcontents
+% \par  \textbf{Palabras clave:} subset sum - brute force - Backtracking - Programaci\'on din\'amica
+% Aca comienzan a escribir su informe
 
 
-% \newpage
+\newpage
 
 \section{Introducción}
 \input{introduccion}
@@ -64,10 +69,16 @@ Programaci\'on din\'amica para luego analizar cu\'al de ellas resulta mejor apli
 \input{desarrollo}
 \newpage
 
-\section{Ap\'endice}
-\input{apendice}
+\section{Experimentaci\'on}
+\input{experimentacion}
 \newpage
 
+\section{Resultados}
+\input{resultados}
+\newpage
+
+\section{Conclusiones}
+\input{conclusiones}
 
 
 \end{document}
