@@ -7,7 +7,9 @@
 
 ## Correr los distintos algoritmos
 Para correr el algoritmo de Fuerza Bruta: `./tp1 1`
+
 Para correr el algoritmo de Back Tracking: `./tp1 2`
+
 Para correr el algoritmo de Programacion Dinamica: `./tp1 3`
 
 ## Correr un caso guardado en un archivo
