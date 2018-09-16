@@ -92,7 +92,11 @@ de incluirlo el $cardinalParcial$ aumenta en 1.
 
 \begin{codebox}
     \Procname{\proc{ResolverDinamica}(int V, int[] S, int i, int n, matriz resultados) \textcolor{red}{O($n*V$)}}
-    \li \If $i == -1$  \textcolor{red}{O($1$)}
+    \li \If $V == 0$: \textcolor{red}{O($1$)}
+        \Then
+         \li       \Return $0$ \textcolor{red}{O($1$)}
+                \End
+    \li \If $i == -1$ or $V<0$  \textcolor{red}{O($1$)}
         \Then
     \li                 \Return $n+1$\footnote{\label{bktrk}Si el algor\'itmo devulve un n\'umero mayor que $n$ significa que no existe soluci\'on} \textcolor{red}{O($1$)}
                 \End
