@@ -6,3 +6,5 @@ Cambios en el informe
 - Cambios en experimentacion
 - Update de graficos
 - Correctitud y optimalidad
+
+Sin cambios en el codigo

@@ -10,7 +10,7 @@ import numpy as np
 
 #%%
 # TEST RANDOM
-for x in range(0,3):
+for x in range(0,10):
     for vDeseado in [20,10000]:
     # for vDeseado in [x**2 for x in range(6,200,3)]:
         for n in range (1,1000,10):
