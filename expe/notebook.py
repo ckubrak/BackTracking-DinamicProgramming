@@ -14,13 +14,15 @@ for x in range(0,3):
     for vDeseado in [20,10000]:
     # for vDeseado in [x**2 for x in range(6,200,3)]:
         for n in range (1,1000,10):
+        # for n in range (1,30,1): -> Para cuando uso FB
+
             nombreArchivo = "/home/cristian/Facu/AlgoritmosIII/Tps/TP1/expe/randomVV" + str(vDeseado) + "n" + str(n) +".txt"
             f = open(nombreArchivo, "a+")
             f.write(str(n)+" "+str(vDeseado)+ "\n")
 
-            for n in range (0,n):
-                numero = random.randint(1,vDeseado - (vDeseado//10))
-                f.write(str(numero)+ "\n")
+            valores = [(abs(random.normalvariate(0,vDeseado//n)))%(vDeseado*1.5) for x in range(0,n)]
+            for i in valores:
+                f.write(str(i)+ "\n")
 
 
             f.close() 
