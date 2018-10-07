@@ -114,11 +114,12 @@ Sea un conjunto $S$ donde $|S|=n$, $S_1\subset S$ el subconjunto \'optimo
 para los elementos $v_1, ... , v_i$  y valor objetivo
 $V_1$ y $S_2\subset S$ el subconjunto \'optimo para los elementos $v_1, ..., v_{i-1}$ para formar $V_2$.
 Supongo que puedo formar un conjunto $S' = S_2\cup {v_i}$, luego $|S'| = |S_2| + 1$ y $V'= V_2 + v_i'$.
-\par Si $S'$ fuese \'optimo luego $V'\neq V_1$ entonces $V'\neq V_1$. Pero si $S'\neq S=S_1$ 
-y $S'$ es \'optimo lo cual es
-absurdo ya que $S_1$ es \'optimo tomando $v_1,...,v_i$ entonces $S_1=S_2$ y $V_1 = V_2$.
-\par Entonces, se cumple es principio de optimalidad.
+\\ Si $S'$ fuese \'optimo luego:
+\par - Si $V' = V_1$ entonces $S' = S_1$. 
+\par - Si $V \neq V_1'$ entonces $S_1 \neq S_3$ $\Rightarrow$ \textbf{absurdo} ya que $S_1$ es el \'optimo utilizando
+los elementos $v_1, ... ,v_k$.
 
+\subsubsection{Complejidad}
 \begin{codebox}
     \Procname{\proc{ResolverDinamica}(int V, int[] S, int i, int n, matriz resultados) \textcolor{red}{O($n*V$)}}
     \li \If $V == 0$: \textcolor{red}{O($1$)}
