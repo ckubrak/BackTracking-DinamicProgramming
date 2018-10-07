@@ -6,10 +6,9 @@ aporte al tiempo de ejecuci\'on. A\'un as\'i, tambi\'en analizar\'e el tiempo de
 \subsubsection{Metodolog\'ia}
 \par Para esta experimentaci\'on se busc\'o analizar como inciden $n$ y $V$ en cada una
 de las distintas maneras de resolver el problema en cuesti\'on. 
-\par Para generar los n\'umeros de manera ``aleatoria'' utilc\'e la funci\'on \texttt{randint()} 
-de la librer\'ia estandar de Python, de manera que cada valor del arreglo $S$ sea un valor aleatorio entre $0$ y
-$0.9*V$. Utilic\'e este intervalo de n\'umeros de manera que exista la posibilidad que exista alg\'un subconjunto
-cuya suma sea $V$.
+\par Para generar los n\'umeros de manera ``aleatoria'' utilc\'e la funci\'on \texttt{normalvariate()} con 
+de la librer\'ia estandar de Python con $\mu = 0 $ y $\sigma = (V // n)$ y luego tomo congruencia m\'odulo $1.5*V$
+Utilic\'e esta forma de generar los $v_i$ a modo de proveer ``igualdad de condiciones'' para todos los algoritmos.
 \par Dado que los experimentos se basan en la utilizaci\'on de par\'ametros aleatorios, se corri\'o 10 veces cada
 uno para poder promediarlos a modo de evitar minimizar las fluctuaciones que pudo haber generado el hecho de usar
 n\'umeros aleatorios.

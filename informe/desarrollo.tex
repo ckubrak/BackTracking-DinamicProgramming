@@ -89,6 +89,35 @@ $minParcial$ y se llega al caso base, por lo que se devuelve 0.
 de incluirlo el $cardinalParcial$ aumenta en 1.
 
 \subsection{Programaci\'on Din\'amica}
+\subsubsection{Correctitud}
+Caracterizaci\'on de una solución \textbf{óptima} S para el problema original:
+\par - Si $n \not\in$ $S$, entonces la mejor solución es $S =S_1$, siendo $S_1$ solución
+óptima para \{$v_1 , v_2 , v_3 ,..., v_{n}$\} llegando al valor objetivo $V$
+\par - Si $n \in S$, entonces la mejor solución es $S = \{n\} \cup S_2$, siendo $S_2$
+solución óptima para \{$v_1 , v_2 , v_3 ,..., v_{n}$\} llegando al valor objetivo $V - v_n$
+\par Por lo tanto, como esas son las únicas dos posibilidades, $S$ deberá ser la que use menos elementos entre 
+$S_1$ y $\{n\} \cup S_2$
+\par Usando esta caracterización, puedo elaborar una recursión
+que calcule la cantidad óptima de elementos necesarios:
+\begin{equation*}
+  f(i,V)=\begin{cases}
+    $\qquad\qquad$0 & \text{si $i=0$, $V=0$}.\\
+    $\qquad\qquad$\infty & \text{si $i=0$, $V\neq 0$}.\\
+    $\qquad\;\;\;$f($i$ $-$ $1$,$V$) & \text{si $i> 0$, $v_i > 0$}.\\
+    min (f($i$ $-$ $1$,$V$),f($i$ $-$ $1$,$V$)) & \text{si $i> 0$, $v_i > 0$}.\\
+  \end{cases}
+\end{equation*}
+\subsubsection{Principio de optimalidad}
+\par Se puede ver que para este problema se puede aplicar el principio de optimalidad: una secuencia \'optima de
+decisiones esta formada por subsecuencias que a su vez son \'opitmas.
+Sea un conjunto $S$ donde $|S|=n$, $S_1\subset S$ el subconjunto \'optimo 
+para los elementos $v_1, ... , v_i$  y valor objetivo
+$V_1$ y $S_2\subset S$ el subconjunto \'optimo para los elementos $v_1, ..., v_{i-1}$ para formar $V_2$.
+Supongo que puedo formar un conjunto $S' = S_2\cup {v_i}$, luego $|S'| = |S_2| + 1$ y $V'= V_2 + v_i'$.
+\par Si $S'$ fuese \'optimo luego $V'\neq V_1$ entonces $V'\neq V_1$. Pero si $S'\neq S=S_1$ 
+y $S'$ es \'optimo lo cual es
+absurdo ya que $S_1$ es \'optimo tomando $v_1,...,v_i$ entonces $S_1=S_2$ y $V_1 = V_2$.
+\par Entonces, se cumple es principio de optimalidad.
 
 \begin{codebox}
     \Procname{\proc{ResolverDinamica}(int V, int[] S, int i, int n, matriz resultados) \textcolor{red}{O($n*V$)}}
@@ -102,8 +131,8 @@ de incluirlo el $cardinalParcial$ aumenta en 1.
                 \End
     \li \If $noEstaDefinido(resultados[i][V]$):  \textcolor{red}{O($1$)}
         \Then 
-    \li          \Return min(ResolverDinamica($V$,$S$,$i-1$,$n$,$resultados$,
-                            \\ $\qquad\qquad$$\qquad\quad\,\,$ $1+$ResolverDinamica($V-S[i]$,$S$,$i-1$,$n$,$resultados$)) \textcolor{red}{O($n*V$)}
+    \li          resultados[i][vDeseado] = min(ResolverDinamica($V$,$S$,$i-1$,$n$,$resultados$,
+                            \\ $\qquad\qquad\qquad\qquad\qquad\qquad$$\qquad\quad\,\,$ $1+$ResolverDinamica($V-S[i]$,$S$,$i-1$,$n$,$resultados$)) \textcolor{red}{O($n*V$)}
                             \End
     \li \Return resultados[i][vDeseado]  \textcolor{red}{O($1$)}
     \end{codebox}
@@ -112,8 +141,8 @@ de incluirlo el $cardinalParcial$ aumenta en 1.
 % problema de para un valor objetivo $V'$ y un una cantidad de elementos $i$, 
 \par El algor\'itmo de Programaci\'on Din\'amica busca obtener una ventaja a partir de encarar al problema como
 subproblemas recursivos pero, teniendo en cuenta que hay subproblemas que se calculan m\'as de una vez, se 
-almacenan las subsoluciones  en una matriz de $n$ filas y $V$ columnas la cual es inicializada con ceros en
-la primer columna (ya que acceder a esa columna implica que se lleg\'o a $V=0$, es decir, se encontr\'o un subconjunto v\'alido).
+almacenan las subsoluciones  en una matriz de $n$ filas y $V$ columnas la cual es inicializada con basura (alg\'un n\'umero negativo)
+en todos sus posiciones a modo de identificar las soluciones calculadas.
  El objetivo de guardar las soluciones es poder acceder a ellas
 r\'apidamente. Es por esto que decidi\'i utilizar para almacenar las soluciones una matriz formada por un vector de 
 vectores, permiti\'endome acceder en $O(1)$ a las soluciones ya calculadas.

@@ -60,7 +60,7 @@ raz\'on por la cual de ahora en m\'as solo voy a comparar el de Fuerza Bruta y e
 \begin{figure}[H] 
     \centering
     \begin{minipage}{0.45\textwidth}
-        \centering
+        \centering 
         \includegraphics[width=1\textwidth]{img/llamadas/v/llamadasBackDinamicavChico.png} % first figure itself
         \caption{Comparaci\'on de las llamadas recursivas de BackTracking y Programac\'ion Din\'amica con $V = 16$}
         \label{fig:llamadasBackDinamicavChico}
@@ -90,11 +90,12 @@ raz\'on por la cual de ahora en m\'as solo voy a comparar el de Fuerza Bruta y e
 \end{figure}
 
 Observando las Figuras \ref{fig:llamadasBackDinamicavChico}, \ref{fig:llamadasBackDinamicavGrande},
-\ref{fig:tiempoBackDinamicavChico} y \ref{fig:tiempoBackDinamicavGrande} se logra
+\ref{fig:tiempoBackDinamicavChico}, \ref{fig:tiempoBackDinamicavGrande} se logra
 ver que los resultados obtenidos se condicen con las hip\'otesis previamente planteadas: con un valor objetivo $V$
-``chico'' el algor\'itmo de Programaci\'on Din\'amica realiza menos llamadas (lo cual conlleva a un mayor tiempo
-de ejecuci\'on)que el de BackTracking, aunque con un $V$ ``grande'' se da exactamente al rev\'es.
-\begin{figure}[H] 
+``chico'' el algoritmo de Programaci\'on Din\'amica realiza menos llamadas (lo cual conlleva a un mayor tiempo
+de ejecuci\'on) que el de BackTracking, aunque con un $V$ ``grande'' de manera que $V*n \gg 2^n$ resulta coveniente
+utilizar el algoritmo de BackTracking. 
+ \begin{figure}[H] 
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
@@ -104,11 +105,11 @@ de ejecuci\'on)que el de BackTracking, aunque con un $V$ ``grande'' se da exacta
         \label{fig:backDinNChico} 
     \end{minipage}\hfill
     \begin{minipage}{0.45\textwidth}
-        \centering
+        \centering 
         \includegraphics[width=1\textwidth]{img/llamadas/n/backDinNGrande.png} % first figure itself
         \caption{Comparaci\'on entre la cantidad de llamadas recursivas entre BackTracking y Programaci\'on
         \label{fig:backDinNGrande} 
-        Din\'amica para $n=29$}
+        Din\'amica para $n=941$}
     \end{minipage}
 \end{figure}
 
@@ -123,7 +124,7 @@ Estimo que esto se debe a que la complejidad depende linealmente de $V$.
 
 
 \subsection{Experimentaci\'on ``No Llega''}
-\subsubsection{Resultads y Comparaciones}
+\subsubsection{Resultados y Comparaciones}
 
 \begin{figure}[H] 
     \centering
@@ -171,7 +172,7 @@ operaciones extras en total.
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{img/nollega/dinamicatiempo.png} % first figure itself
-        \caption{Comparaci\'on entre el tiempo de ejecuci\'on de BackTracking y Fuerza Bruta}
+        \caption{Tiempo de ejecuci\'on de Programaci\'on Din\'amica}
         \label{fig:dinamicatiemponollega} 
     \end{minipage}
 \end{figure}
