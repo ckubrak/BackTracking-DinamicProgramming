@@ -6,5 +6,6 @@ Cambios en el informe
 - Cambios en experimentacion
 - Update de graficos
 - Correctitud y optimalidad
+- Agrego apendice con ejemplo de la distribucion utlizada
 
 Sin cambios en el codigo
